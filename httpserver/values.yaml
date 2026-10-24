@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: hello-go
+  tag: "1.3"
+  pullPolicy: IfNotPresent
+
+service:
+  targetPort: 8080
+  type: ClusterIP
+  port: 80
+
+config:
+  port: "8080"
+secret:
+  token: "077"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: localhost
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
